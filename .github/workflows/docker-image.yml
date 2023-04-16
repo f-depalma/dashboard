@@ -41,17 +41,17 @@ jobs:
         with:
           context: .
           push: true
-          tags: fdepalma95/my_page:latest
+          tags: fdepalma95/dashboard:latest
 
       - name: Docker Pull & Run From Hub
         uses: appleboy/ssh-action@master
         with:
-          host: ec2-16-170-37-208.eu-north-1.compute.amazonaws.com
+          host: 16.170.37.208
           username: ec2-user
           key: ${{secrets.ACTION_PRIVATE_KEY}}
           envs: GITHUB_SHA
           script: |
-            sudo docker pull fdepalma95/my_page
-            sudo docker stop my_page
-            sudo docker rm my_page
-            sudo docker run -e YOUTUBE_API_KEY=${{ secrets.YOUTUBE_API_KEY }} --detach --name my_page -p 80:3000 fdepalma95/my_page
+            sudo docker pull fdepalma95/dashboard
+            sudo docker stop dashboard
+            sudo docker rm dashboard
+            sudo docker run --detach --name dashboard -p 3000:80 fdepalma95/dashboard
