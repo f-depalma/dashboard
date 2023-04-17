@@ -27,6 +27,7 @@ const Topbar = () => {
           <SearchIcon />
         </IconButton>
       </Box>
+      
       <Box display="flex">
         <IconButton onClick={colorMode.toggleColorMode}>
           {theme.palette.mode === "dark" ? (
