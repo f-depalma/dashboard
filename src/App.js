@@ -14,6 +14,7 @@ import FAQ from "./scenes/faq";
 import Geography from "./scenes/geography";
 import Calendar from "./scenes/calendar/calendar";
 import { Routes, Route } from "react-router-dom";
+import { useState } from "react";
 
 function App() {
   const [theme, colorMode] = useMode();
