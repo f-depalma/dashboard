@@ -5,11 +5,11 @@ FROM node:19-alpine AS build
 
 WORKDIR /app
 
-COPY package.json ./
+COPY package.json .
 
-RUN yarn  install
+RUN yarn install
 
-COPY . /app
+COPY . .
 
 RUN yarn build
 
@@ -18,7 +18,7 @@ RUN yarn build
 FROM nginx:stable-alpine
 
 COPY --from=build /app/build /usr/share/nginx/html
-COPY ./nginx/default.conf /etc/nginx/conf.d/default.conf
+COPY nginx/default.conf /etc/nginx/conf.d/default.conf
 
 EXPOSE 80
 
